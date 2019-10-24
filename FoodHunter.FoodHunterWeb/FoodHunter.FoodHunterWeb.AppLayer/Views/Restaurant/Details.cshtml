@@ -1,0 +1,81 @@
+﻿@using FoodHunter.Web.DataLayer
+@model FoodHunter.FoodHunterWeb.AppLayer.ViewModels.Details.RestaurantDetailsViewModel
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout_Restaurant_Admin.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div>
+        <h4>Welcome Restaurant Admin</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.RestaurantBase.RestaurantName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RestaurantBase.RestaurantName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.RestaurantBase.CoverPicture)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RestaurantBase.CoverPicture)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.RestaurantBase.Location)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RestaurantBase.Location)
+            </dd>
+            <dt>
+                Restaurant Admin
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProfileDetails.FirstName)
+                @(" ")
+                @Html.DisplayFor(model => model.ProfileDetails.LastName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ProfileDetails.PhoneNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProfileDetails.PhoneNo)
+            </dd>
+        </dl>
+        
+        
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.RestaurantBase.RestaurantId  }) 
+    </p>
+    
+<h2>Food Menu</h2>
+@{
+    Html.RenderAction("List", "Food", new { @id = Url.RequestContext.RouteData.Values["id"] });
+}
+
+<br />    <h2>Reviews</h2>
+@{
+    Html.RenderAction("List","Review", new {id = Url.RequestContext.RouteData.Values["id"], @controller = Url.RequestContext.RouteData.Values["controller"] });
+}
+
+@if (Session["UserId"] != null && Session["UserType"].ToString() == UserType.Foodie.ToString())
+{
+    Html.RenderAction("Create", "Review", new {id = Url.RequestContext.RouteData.Values["id"],
+        controller = Url.RequestContext.RouteData.Values["controller"]});
+}
+
+</body>
+</html>

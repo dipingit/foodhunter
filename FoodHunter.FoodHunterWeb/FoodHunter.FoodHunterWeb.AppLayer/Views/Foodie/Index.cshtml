@@ -1,0 +1,37 @@
+﻿@model FoodHunter.FoodHunterWeb.AppLayer.ViewModels.Details.FoodieDetailsViewModel
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout_Foodie.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <h2>CheckIns</h2>
+        @if (Model?.CheckIns != null)
+        {
+            foreach (var item in Model.CheckIns)
+            {
+                <table class="table">
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CheckInTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Restaurant)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id=item.CheckInId }) |
+                            @Html.ActionLink("Details", "Details", new { id=item.CheckInId })
+                        </td>
+                    </tr>
+                </table>
+            }
+        }
+</body>
+</html>

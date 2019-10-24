@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FoodHunter.Web.AppLayer.ViewModels.List.NewsListViewModel>
+
+@{
+    ViewBag.Title = "New Arrival";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Arrival</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NewsPicture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewsBody)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewsId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RestaurantName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewsPicture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewsBody)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewsId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RestaurantName)
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,38 @@
+﻿@model FoodHunter.FoodHunterWeb.AppLayer.ViewModels.Details.RestaurantAdminDetailsViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Restaurant_Admin.cshtml";
+}
+
+<h2>Welcome Restaurant Admin</h2>
+<hr/>
+<h2>Restaurants</h2>
+<hr />
+    
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Restaurants[0].RestaurantName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Restaurants[0].CurrentStatus)
+        </th>
+    </tr>
+    @if (Model?.Restaurants != null)
+    {
+        foreach (var item in Model.Restaurants)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(""+item.RestaurantName+"", "Details", "Restaurant", new { id=item.RestaurantId }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrentStatus)
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+@Html.ActionLink("Add Restaurant", "Create", "Restaurant")

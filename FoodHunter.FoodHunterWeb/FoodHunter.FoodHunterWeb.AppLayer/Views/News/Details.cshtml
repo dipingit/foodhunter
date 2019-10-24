@@ -1,0 +1,41 @@
+﻿@model FoodHunter.FoodHunterWeb.AppLayer.ViewModels.Details.NewsDetailsViewModel
+
+@{
+    ViewBag.Title = "News Details";
+    Layout = "~/Views/Shared/_Layout_Restaurant_Admin.cshtml";
+}
+
+<h2>News Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NewsPicture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewsPicture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewsBody)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewsBody)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back","Index","News")
+</p>

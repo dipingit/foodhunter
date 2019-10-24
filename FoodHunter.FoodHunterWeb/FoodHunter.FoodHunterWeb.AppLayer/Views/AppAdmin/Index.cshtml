@@ -1,0 +1,10 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Welcome Admin</h1>
+<div class="well linktab">@Html.ActionLink("List of Users", "UserList", "AppAdmin")<p>See list of Users</p></div>
+<div class="well linktab">@Html.ActionLink("List of Resturents", "RestaurantList", "AppAdmin")<p>See List of Resturents</p></div>
+<div class="well linktab">@Html.ActionLink("Pending Approvals", "ApprovalList", "AppAdmin")<p>Pending Approvals</p></div>
